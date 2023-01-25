@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
       monsters: [],
-      search: "",
+      searchField: "",
     };
   }
 
@@ -24,7 +24,7 @@ class App extends Component {
 
   onSearchChange = (event) => {
     this.setState(() => {
-      return { search: event.target.value.toLowerCase() };
+      return { searchField: event.target.value.toLowerCase() };
     });
   };
 
@@ -38,7 +38,7 @@ class App extends Component {
           onChange={this.onSearchChange}
         />
         {this.state.monsters
-          .filter((monster) => monster.name.toLowerCase().includes(this.state.search))
+          .filter((monster) => monster.name.toLowerCase().includes(this.state.searchField))
           .map((monster) => (
             <div key={monster.id}>
               <h1>{monster.name}</h1>
